@@ -1,8 +1,6 @@
 #include <iostream>
 #include "affichage.h"
 
-
-
 void chercherRemplacer(unsigned tab[], unsigned capacite, unsigned diviseur) {
    for( unsigned pos = 2; pos < capacite; ++pos) {
       bool pasnombrePremier = pos % diviseur == 0 && pos != diviseur;
