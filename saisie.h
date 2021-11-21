@@ -4,12 +4,12 @@
   Nom du labo : Labo_crible_GroupeO
   Auteur(s)   : Emilie Bressoud & Bastien Pillonel
   Date        : 19.11.2021
-  But         : Fichier de déclaration des sous-programme utilisés pour la
-                saisie utilisateur
+  But         : Fichier de déclaration des sous-programme utilisé pour
+               vérifier la saisie utilisateur
 
   Remarque(s) : -
 
-  Compilateur : MingW-w64 g++ 11.2.0
+  Compilateur : MingW-w64 g++ 11.2.0 et Apple Clang 13.0.0
   ---------------------------------------------------------------------------
 */
 
@@ -29,7 +29,7 @@
 // Nom: min             Description: Valeur minimale de saisie
 // Nom: max             Description: Valeur maximale de saisie
 // Nom: MSG_SAISIE      Description: Message de saisie
-// Nom: MSG_ERREUR      Description: Message en cas de mauvaise saisie
+// Nom: MSG_ERREUR      Description: Message en cas de saisie incorrecte
 //
 // Retourne: - La valeur saisie
 //-------------------------------------------------------------------

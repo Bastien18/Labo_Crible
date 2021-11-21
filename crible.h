@@ -9,7 +9,7 @@
 
   Remarque(s) : -
 
-  Compilateur : MingW-w64 g++ 11.2.0
+  Compilateur : MingW-w64 g++ 11.2.0 et Apple Clang 13.0.0
   ---------------------------------------------------------------------------
 */
 
@@ -46,7 +46,7 @@ void listeEntierNaturel(unsigned tab[], unsigned taille);
 void criblerTableau(unsigned tab[], unsigned taille);
 
 //-------------------------------------------------------------------
-//
+// afficheCrible
 //-------------------------------------------------------------------
 // Description:   Affiche le tableau sous forme de matrice pour
 // l'affichage du crible
@@ -65,19 +65,38 @@ void afficheCrible(const std::string& MSG_AFFICHAGE, const unsigned tab[],
                    unsigned taille, bool isInit, unsigned colonne = 10);
 
 //-------------------------------------------------------------------
+// croixOuCercle
+//-------------------------------------------------------------------
+// Description: affiche un cercle si le nombre n'est pas criblé ou non
+// premier et affiche une croix si le nombre est un nombre premier
+//
+// Paramètres:
+// Nom: tab    Description:   Tableau dans lequel on compte
+//                            le total de nombres premiers
+// Nom: isInit Description:   indique si le tableau à afficher est
+//                            celui à l'initialisatioin ou celui criblé
+// Nom: pos    Description:   la position du tableau
+//
+// Retourne: -
+//-------------------------------------------------------------------
+void croixOuCercle(const unsigned tab[], bool isInit, unsigned pos);
+
+//-------------------------------------------------------------------
 // combienNombrePremier
 //-------------------------------------------------------------------
-// Description: Compte combien de il y de nombre premier dans un
+// Description: Compte le total de nombres premiers dans un
 // tableau criblé => élément non nul dans le tableau puisqu'il n'y
 // restera plus que des nombres premiers.
 //
 // Paramètres:
-// Nom: tab    Description:   Tableau dans lequel on va aller compter
-//                            le nombre de nombre premier
+// Nom: tab    Description:   Tableau dans lequel on compte
+//                            le total de nombres premiers
 // Nom: taille Description:   Taille du tableau
 //
 // Retourne: -
 //-------------------------------------------------------------------
+
+
 unsigned combienNombrePremier(const unsigned tab[], unsigned taille);
 
 //-------------------------------------------------------------------

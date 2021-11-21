@@ -6,10 +6,11 @@
   Date        : 19.11.2021
   But         : Ce programme demande à l'utilisateur de saisir un nombre de
                 valeur puis il affiche une matrice du nombre de valeur avant
-                le crible et une nouvelle après crible. Enfin il affiche le
-                nombre de nombre premier ainsi que la liste de ces dernier.
+                le crible et une nouvelle après crible. Enfin, il affiche le
+                nombre total de nombres premiers ainsi que la liste de ces
+                derniers.
 
-  Remarque(s) : Ce programme est subdiviser en plusieur fichier:
+  Remarque(s) : Ce programme est subdivisé en plusieurs fichiers:
                 - 1 librairie mettant à dispo les ss-prgm utile à la gestion
                     de tableau 1 dimension
                 - 1 librairie mettant à dispo les ss-prgm utile à la saisie
@@ -18,7 +19,7 @@
                 - 1 fichier mettant à dispo les ss-prgm utile à la démo du
                     crible
 
-  Compilateur : MingW-w64 g++ 11.2.0
+  Compilateur : MingW-w64 g++ 11.2.0 et Apple Clang 13.0.0
   ---------------------------------------------------------------------------
 */
 

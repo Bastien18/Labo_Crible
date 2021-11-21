@@ -7,15 +7,17 @@
   But         : Fichier de définitions des sous-programme utilisés pour la
                 saisie utilisateur
 
-  Remarque(s) : -
+  Remarque(s) : La fonction saisie ne vérifie pas si l'utilisateur entre une
+                 valeur correcte avec un ou plusieurs espaces ou caractères
 
-  Compilateur : MingW-w64 g++ 11.2.0
+  Compilateur : MingW-w64 g++ 11.2.0 et Apple Clang 13.0.0
   ---------------------------------------------------------------------------
 */
 
 #include "saisie.h"
 #include "annexe.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 

@@ -8,7 +8,7 @@
 
   Remarque(s) : -
 
-  Compilateur : MingW-w64 g++ 11.2.0
+  Compilateur : MingW-w64 g++ 11.2.0 et Apple Clang 13.0.0
   ---------------------------------------------------------------------------
 */
 

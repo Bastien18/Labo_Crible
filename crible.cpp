@@ -4,12 +4,12 @@
   Nom du labo : Labo_crible_GroupeO
   Auteur(s)   : Emilie Bressoud & Bastien Pillonel
   Date        : 19.11.2021
-  But         : Fichier de définitions des sous-programme utilisés pour la
+  But         : Fichier de définitions des sous-programmes utilisés pour la
                 demonstration du crible d'Eratosthène
 
   Remarque(s) : -
 
-  Compilateur : MingW-w64 g++ 11.2.0
+  Compilateur : MingW-w64 g++ 11.2.0 et Apple Clang 13.0.0
   ---------------------------------------------------------------------------
 */
 
@@ -17,6 +17,7 @@
 #include "tableauC.h"
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -28,7 +29,8 @@ const unsigned       ESPACEMENT_CRIBLE_AFFICHAGE         =  2,
                      ESPACEMENT_NOMBRE_PREMIER_AFFICHAGE =  4;
 
 const string         MSG_AFFICHAGE_NBR_PREMIER_1   =  "Il y a ",
-                     MSG_AFFICHAGE_NBR_PREMIER_2   =  " nombres premier";
+                     MSG_AFFICHAGE_NBR_PREMIER_2   =  " nombre premier",
+                     MSG_AFFICHAGE_NBRS_PREMIERS   =  " nombres premiers";
 
 // Rempli un tableau avec la liste des entier naturel de 1 à n entier (taille)
 void listeEntierNaturel(unsigned tab[], unsigned taille){
@@ -65,6 +67,18 @@ void criblerTableau(unsigned tab[], unsigned taille){
       }
    }
 }
+// affiche les nombres par une croix ou cercle
+void croixOuCercle(const unsigned tab[], bool isInit, unsigned pos){
+   // Lorsque c'est l'affichage de l'init la matrice est remplie par des cercles
+   // Lorsque ce n'est pas l'init les éléments préalablement mis à 0 dans le tableau sont
+   // non premiers. Ils sont donc représentés avec une croix et les nbres premiers
+   // avec un cercle
+   if(!isInit && tab[pos] == 0){
+      cout << CROIX;
+   }else{
+      cout << CERCLE;
+   }
+}
 
 // Affichage du crible
 void afficheCrible(const string& MSG_AFFICHAGE, const unsigned tab[],
@@ -76,17 +90,14 @@ void afficheCrible(const string& MSG_AFFICHAGE, const unsigned tab[],
       if(!(i % colonne))
          cout  << endl;
 
-      cout  << setw(ESPACEMENT_CRIBLE_AFFICHAGE)
-            // Lorsque c'est l'affichage de l'init on rempli la matrice de cercle
-            // Lorsque ce n'est pas l'init les éléments à 0 dans le tableau sont
-            // non premier donc représenter avec une croix et les nbre premiers
-            // avec un cercle
-            << (!tab[i] && !isInit ? CROIX : CERCLE);
+      cout  << setw(ESPACEMENT_CRIBLE_AFFICHAGE);
+
+            croixOuCercle(tab, isInit, i);
    }
    cout  << endl  << endl;
 }
 
-// Calcul combien de nombre premier dans un tableau criblé
+// Calcule le total de nombres premier dans un tableau criblé
 unsigned combienNombrePremier(const unsigned tab[], unsigned taille){
    unsigned compteur = 0;
 
@@ -97,11 +108,14 @@ unsigned combienNombrePremier(const unsigned tab[], unsigned taille){
    return compteur;
 }
 
-// Affiche les nombres premier d'un tableau criblé
+// Affiche les nombres premiers d'un tableau criblé
 void afficheNombrePremier(const unsigned tab[], unsigned taille){
-   cout  << MSG_AFFICHAGE_NBR_PREMIER_1
-         << combienNombrePremier(tab,taille)
-         << MSG_AFFICHAGE_NBR_PREMIER_2   << endl;
+   //Lorsqu'il n'y en a qu'un seul nombre premier, msgNbreOuNbres s'affiche au singulier
+   string msgNbreOuNbres = (combienNombrePremier(tab, taille) == 1)?
+                           MSG_AFFICHAGE_NBR_PREMIER_2 : MSG_AFFICHAGE_NBRS_PREMIERS;
+
+   cout  << MSG_AFFICHAGE_NBR_PREMIER_1 << combienNombrePremier(tab,taille);
+            cout << msgNbreOuNbres << endl;
 
    for(unsigned i = 0; i < taille; ++i){
       if(tab[i])

@@ -8,7 +8,7 @@
 
   Remarque(s) : -
 
-  Compilateur : MingW-w64 g++ 11.2.0
+  Compilateur : MingW-w64 g++ 11.2.0 et Apple Clang 13.0.0
   ---------------------------------------------------------------------------
 */
 
@@ -26,6 +26,6 @@ void viderBuffer(){
 // Fin de programme
 void finProgramme(const string& MSG_FIN){
    cout  << MSG_FIN;
-   cin.ignore(numeric_limits<streamsize>::max(), '\n');
+   viderBuffer();
    exit(EXIT_SUCCESS);
 }
