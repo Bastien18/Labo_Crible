@@ -1,48 +1,41 @@
 /*
------------------------------------------------------------------------------------
-File name     : saisie.cpp
-Authors       : Émilie Bressoud,
-Creation date : 18.11.2021
+  ---------------------------------------------------------------------------
+  Fichier     : saisie.cpp
+  Nom du labo : Labo_crible_GroupeO
+  Auteur(s)   : Emilie Bressoud & Bastien Pillonel
+  Date        : 19.11.2021
+  But         : Fichier de définitions des sous-programme utilisés pour la
+                saisie utilisateur
 
-Description   : premiere fonction : vérifie l'entrée de l'utilisateur. Si l'utilisateur entre une valeur non
-               fonction vider_buffer, qui vide à chaque fois le buffer après une entrée.
+  Remarque(s) : -
 
-Remarque(s)     :
-
-Compilateur     :
-                - Apple clang 13.0.0
-                - Mingw-w64 g++ 11.1.0???
------------------------------------------------------------------------------------
+  Compilateur : MingW-w64 g++ 11.2.0
+  ---------------------------------------------------------------------------
 */
 
-#include <iostream> //
-#include <limits>   // utilise pour vider le buffer
-#include <string>   // utiliser pour les messages en type string
+#include "saisie.h"
+#include "annexe.h"
+#include <iostream>
 
 using namespace std;
-void viderBuffer() {
-   cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
 
-unsigned saisie(const unsigned& min, const unsigned& max, const string& message, const string&
-            messageErreur) {
+unsigned saisie(unsigned min, unsigned max, const string& MSG_SAISIE,
+                const string& MSG_ERREUR) {
    bool erreur;
    unsigned saisieUtilisateur;
 
    do {
-      cout << message;
-      cin >> saisieUtilisateur;
+      cout  << MSG_SAISIE   << " [" << min << ".." << max << "] : ";
+      cin   >> saisieUtilisateur;
 
       erreur = cin.fail() || saisieUtilisateur < min || saisieUtilisateur > max;
 
       if(erreur) {
-         cout << messageErreur << min << " et "
-              << max << endl;
+         cout << MSG_ERREUR << endl;
          cin.clear();
       }
       viderBuffer();
    } while(erreur);
    cout << endl;
    return saisieUtilisateur;
-
-}
+ }

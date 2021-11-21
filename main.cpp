@@ -1,44 +1,88 @@
+/*
+  ---------------------------------------------------------------------------
+  Fichier     : main.cpp
+  Nom du labo : Labo_crible_GroupeO
+  Auteur(s)   : Emilie Bressoud & Bastien Pillonel
+  Date        : 19.11.2021
+  But         : Ce programme demande à l'utilisateur de saisir un nombre de
+                valeur puis il affiche une matrice du nombre de valeur avant
+                le crible et une nouvelle après crible. Enfin il affiche le
+                nombre de nombre premier ainsi que la liste de ces dernier.
+
+  Remarque(s) : Ce programme est subdiviser en plusieur fichier:
+                - 1 librairie mettant à dispo les ss-prgm utile à la gestion
+                    de tableau 1 dimension
+                - 1 librairie mettant à dispo les ss-prgm utile à la saisie
+                    utilisateur
+                - 1 librairie annexe avec les ss-prgm à utilisation diverse
+                - 1 fichier mettant à dispo les ss-prgm utile à la démo du
+                    crible
+
+  Compilateur : MingW-w64 g++ 11.2.0
+  ---------------------------------------------------------------------------
+*/
+
+#include <cstdlib>
 #include <iostream>
-#include <string>
+#include "annexe.h"
+#include "crible.h"
 #include "saisie.h"
-#include "affichage.h"
-#include "crible_1.h"
+
+using namespace std;
 
 int main() {
 
-   const std::string   MSG_ERREUR = "Veuillez entrer une valeur entre ";
-   const std::string   MSG_VALEUR_ENTREE = "nbre de valeurs [1...100] : ";
+   //-----------------------------------------------------------------------
+   // Déclaration des variables et constantes
+   //-----------------------------------------------------------------------
+   const string   MSG_BIENVENUE     =  "Demo du crible d'Eratosthene",
+                  MSG_SAISIE        =  "nbre de valeurs",
+                  MSG_ERREUR_SAISIE =  "Erreur dans la saisie veuillez recommencez",
+                  MSG_INIT          =  "initialisation du tableau",
+                  MSG_CRIBLAGE      =  "criblage du tableau",
+                  MSG_FIN           =  "Presser ENTER pour quitter";
 
-   const std::string   MSG_INITIALISATION = "initialisation du tableau";
-   const std::string   MSG_CRIBLAGE = "criblage du tableau";
-   const std::string   MSG_FIN = "Presser ENTER pour quitter";
+   const unsigned MIN_VALEUR  =  2,
+                  MAX_VALEUR  =  100;
 
-   const unsigned       COLONNE = 10u;
-   const unsigned       MIN = 1u;
-   const unsigned       MAX = 100u;
+   //-----------------------------------------------------------------------
+   // Msg de bienvenue
+   //-----------------------------------------------------------------------
+   cout  << MSG_BIENVENUE  << endl;
 
-   unsigned int         valeurSaisie;
+   //-----------------------------------------------------------------------
+   // Saisie du nombre de valeur
+   //-----------------------------------------------------------------------
+   unsigned tableauCrible[MAX_VALEUR]  =  {},
+            tailleTableauCrible;
+
+   tailleTableauCrible  = saisie(MIN_VALEUR, MAX_VALEUR, MSG_SAISIE, MSG_ERREUR_SAISIE);
+
+   //-----------------------------------------------------------------------
+   // Affichage avant le crible
+   //-----------------------------------------------------------------------
+   afficheCrible(MSG_INIT, tableauCrible, tailleTableauCrible, true);
+
+   //-----------------------------------------------------------------------
+   // Criblage tableau
+   //-----------------------------------------------------------------------
+   criblerTableau(tableauCrible, tailleTableauCrible);
+
+   //-----------------------------------------------------------------------
+   // Affichage après le crible
+   //-----------------------------------------------------------------------
+   afficheCrible(MSG_CRIBLAGE, tableauCrible, tailleTableauCrible, false);
+
+   //-----------------------------------------------------------------------
+   // Affichage des nombres premiers
+   //-----------------------------------------------------------------------
+   afficheNombrePremier(tableauCrible, tailleTableauCrible);
+
+   //-----------------------------------------------------------------------
+   // Fin du programme
+   //-----------------------------------------------------------------------
+   finProgramme(MSG_FIN);
 
 
-   debutDeProgramme();
-
-   unsigned capacite = saisie(MIN, MAX, MSG_VALEUR_ENTREE, MSG_ERREUR);
-   unsigned tab[MAX] = {};
-
-   //affichage du premier tableau
-   affichage(COLONNE, tab, capacite, MSG_INITIALISATION);
-
-   remplirTableau(tab, capacite);
-
-   //affichage du second tableau
-   affichage(COLONNE, tab, capacite, MSG_CRIBLAGE);
-
-   //affichage nombres premiers
-
-   affichage2(COLONNE, tab, capacite);
-
-   //fin de programme
-   std::cout << MSG_FIN << std::endl;
-   viderBuffer();
    return EXIT_SUCCESS;
 }
