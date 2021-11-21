@@ -110,6 +110,7 @@ unsigned combienNombrePremier(const unsigned tab[], unsigned taille){
 
 // Affiche les nombres premiers d'un tableau criblé
 void afficheNombrePremier(const unsigned tab[], unsigned taille){
+
    //Lorsqu'il n'y en a qu'un seul nombre premier, msgNbreOuNbres s'affiche au singulier
    string msgNbreOuNbres = (combienNombrePremier(tab, taille) == 1)?
                            MSG_AFFICHAGE_NBR_PREMIER_2 : MSG_AFFICHAGE_NBRS_PREMIERS;

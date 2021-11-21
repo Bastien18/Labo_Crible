@@ -1,9 +1,11 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Labo_Crible.dir/main.cpp.obj"
-  "Labo_Crible.exe"
-  "Labo_Crible.exe.manifest"
+  "CMakeFiles/Labo_Crible.dir/annexe.cpp.o"
+  "CMakeFiles/Labo_Crible.dir/crible.cpp.o"
+  "CMakeFiles/Labo_Crible.dir/main.cpp.o"
+  "CMakeFiles/Labo_Crible.dir/saisie.cpp.o"
+  "CMakeFiles/Labo_Crible.dir/tableauC.cpp.o"
+  "Labo_Crible"
   "Labo_Crible.pdb"
-  "libLabo_Crible.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
