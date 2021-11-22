@@ -70,11 +70,6 @@ void criblerTableau(unsigned tab[], unsigned taille){
 
 // affiche les nombres par une croix ou cercle
 void croixOuCercle(const unsigned tab[], bool isInit, unsigned pos){
-   // Lorsque c'est l'affichage de l'init la matrice est remplie par des cercles
-   // Lorsque ce n'est pas l'init les éléments préalablement mis à 0 dans le tableau sont
-   // non premiers. Ils sont donc représentés avec une croix et les nbres premiers
-   // avec un cercle
-
    if(!isInit && tab[pos] == 0){
       cout << CROIX;
    }else{

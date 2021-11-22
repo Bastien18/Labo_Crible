@@ -67,8 +67,10 @@ void afficheCrible(const std::string& MSG_AFFICHAGE, const unsigned tab[],
 //-------------------------------------------------------------------
 // croixOuCercle
 //-------------------------------------------------------------------
-// Description: affiche un cercle si le nombre n'est pas criblé ou non
-// premier et affiche une croix si le nombre est un nombre premier
+// Description: Lorsque c'est l'affichage de l'init la matrice est remplie
+// par des cercles lorsque ce n'est pas l'init les éléments préalablement mis
+// à 0 dans le tableau sont non premiers. Ils sont donc représentés avec une
+// croix et les nbres premiers avec un cercle
 //
 // Paramètres:
 // Nom: tab    Description:   Tableau dans lequel on compte
