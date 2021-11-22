@@ -4,7 +4,7 @@
   Nom du labo : Labo_crible_GroupeO
   Auteur(s)   : Emilie Bressoud & Bastien Pillonel
   Date        : 19.11.2021
-  But         : Fichier de définitions des sous-programmes utilisés pour la
+   But         : Fichier de définitions des sous-programmes utilisés pour la
                 demonstration du crible d'Eratosthène
 
   Remarque(s) : Les nombres non premiers sont mis à zéro lors du criblage.
