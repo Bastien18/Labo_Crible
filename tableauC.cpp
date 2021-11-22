@@ -15,8 +15,6 @@
 
 #include "tableauC.h"
 
-using namespace std;
-
 // Rempli un tableau avec une valeur passée en paramètre
 void remplirTableau(unsigned tab[], unsigned taille, unsigned valeur){
    for(unsigned i = 0; i < taille; ++i){

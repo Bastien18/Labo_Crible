@@ -7,7 +7,7 @@
   But         : Fichier de définitions des sous-programmes utilisés pour la
                 demonstration du crible d'Eratosthène
 
-  Remarque(s) : -
+  Remarque(s) : Les nombres non premiers sont mis à zéro lors du criblage.
 
   Compilateur : MingW-w64 g++ 11.2.0 et Apple Clang 13.0.0
   ---------------------------------------------------------------------------
@@ -30,7 +30,7 @@ const unsigned       ESPACEMENT_CRIBLE_AFFICHAGE         =  2,
 
 const string         MSG_AFFICHAGE_NBR_PREMIER_1   =  "Il y a ",
                      MSG_AFFICHAGE_NBR_PREMIER_2   =  " nombre premier",
-                     MSG_AFFICHAGE_NBRS_PREMIERS   =  " nombres premiers";
+                     MSG_AFFICHAGE_NBR_PREMIER_2_PL=  " nombres premiers";
 
 // Rempli un tableau avec la liste des entier naturel de 1 à n entier (taille)
 void listeEntierNaturel(unsigned tab[], unsigned taille){
@@ -67,12 +67,14 @@ void criblerTableau(unsigned tab[], unsigned taille){
       }
    }
 }
+
 // affiche les nombres par une croix ou cercle
 void croixOuCercle(const unsigned tab[], bool isInit, unsigned pos){
    // Lorsque c'est l'affichage de l'init la matrice est remplie par des cercles
    // Lorsque ce n'est pas l'init les éléments préalablement mis à 0 dans le tableau sont
    // non premiers. Ils sont donc représentés avec une croix et les nbres premiers
    // avec un cercle
+
    if(!isInit && tab[pos] == 0){
       cout << CROIX;
    }else{
@@ -110,13 +112,12 @@ unsigned combienNombrePremier(const unsigned tab[], unsigned taille){
 
 // Affiche les nombres premiers d'un tableau criblé
 void afficheNombrePremier(const unsigned tab[], unsigned taille){
-
-   //Lorsqu'il n'y en a qu'un seul nombre premier, msgNbreOuNbres s'affiche au singulier
-   string msgNbreOuNbres = (combienNombrePremier(tab, taille) == 1)?
-                           MSG_AFFICHAGE_NBR_PREMIER_2 : MSG_AFFICHAGE_NBRS_PREMIERS;
-
-   cout  << MSG_AFFICHAGE_NBR_PREMIER_1 << combienNombrePremier(tab,taille);
-            cout << msgNbreOuNbres << endl;
+   cout  << MSG_AFFICHAGE_NBR_PREMIER_1   << combienNombrePremier(tab,taille)
+         << ((combienNombrePremier(tab, taille) == 1)?
+            MSG_AFFICHAGE_NBR_PREMIER_2 : MSG_AFFICHAGE_NBR_PREMIER_2_PL)
+         << endl;
+   //Lorsqu'il n'y en a qu'un seul nombre premier, s'affiche au
+   // singulier
 
    for(unsigned i = 0; i < taille; ++i){
       if(tab[i])
