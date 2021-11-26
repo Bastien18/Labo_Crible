@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
-project(Labo_Crible)
+project(labo_06_n)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Labo_Crible main.cpp)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wconversion -Wsign-conversion -pedantic")
+
+add_executable(labo_06_n labo_06_n.cpp annexe.h annexe.cpp crible_eratosthene.cpp crible_eratosthene.h complement.cpp complement.h)
