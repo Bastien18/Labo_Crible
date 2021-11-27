@@ -16,7 +16,10 @@ Remarque(s)    : - Un warning est pr�sent pour la taille du tableau "tableau" 
                    avant la saise de l'utilisateur.
 
 
-Compilateur    : Mingw-w64 g++ 8.1.0
+
+Compilateurs   :  - Mingw-w64 g++ 8.1.0
+                  - MingW-w64 g++ 11.2.0
+                  - Apple clang 13.0.0
 -----------------------------------------------------------------------------------
 */
 
@@ -38,6 +41,7 @@ int main() {
 														  "premiers";
 	const unsigned int VALEUR_MIN          = 1;
    const unsigned int VALEUR_MAX          = 100;
+   const unsigned int CAPACITE            = 100;
 
 	const string       MESSAGE_NBRE_VALEUR = "nbre de valeurs";
    const string       MESSAGE_ERREUR      = "Saisie incorrect";
@@ -135,12 +139,14 @@ int main() {
 
    //Complement
 
-   unsigned tab1er[totalNbrPremiers];// création du tableau vide avec comme taille le total de nbres premiers
+   //creation du tableau vide
+   unsigned tab1er[CAPACITE];
 
-   nbre1er(tableau, valeurSaisie, tab1er, totalNbrPremiers);// fonction qui remplit le tableau de nbres premiers
+   //remplissage du tableau comportant seulement les nombres premiers
+   nbre1er(tableau, valeurSaisie, tab1er, totalNbrPremiers);
 
    //affiche la liste des nombres premiers
-   put((int*)tab1er, totalNbrPremiers);
+   put(tab1er, totalNbrPremiers);
 
    // ************************************************
 	// 4. Fin du programme
