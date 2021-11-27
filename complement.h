@@ -1,8 +1,8 @@
 /*
 -----------------------------------------------------------------------------------
 Nom du fichier : complement.h
-Nom du labo    : labo_06_n
-Auteur(s)      : Emilie Bressoud, Bastien
+Nom du labo    : labo_06b_O
+Auteur(s)      : Emilie Bressoud, Bastien Pillonel
 Date           : 25.11.2021
 But            : Contient les prototype des fonctions de complement.cpp
 

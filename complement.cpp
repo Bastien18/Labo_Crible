@@ -1,8 +1,8 @@
 /*
 -----------------------------------------------------------------------------------
 Nom du fichier : complement.cpp
-Nom du labo    : labo_06_n
-Auteur(s)      : Emilie Bressoud
+Nom du labo    : labo_06b_O
+Auteur(s)      : Emilie Bressoud, Bastien Pillonel
 Date           : 21.11.2021
 But            : remplissage d'un tableau contenant seulement les nombres
                   premiers et l'affichage de la liste de ces derniers.

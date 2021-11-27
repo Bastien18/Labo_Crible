@@ -1,8 +1,9 @@
 /*
 -----------------------------------------------------------------------------------
 Nom du fichier : labo_06_n.cpp
-Nom du labo    : labo_06_n
+Nom du labo    : labo_06b
 Auteur(s)      : Theodros Mulugeta, Alexis Gonzalez / HEIG-VD
+               : Emilie Bressoud et Bastien Pillonel
 Date           : 21.11.2021
 But            : Le programme reprodruit le comportement exacte du crible
                  d'eratosth�ne, les valeurs sont donc consid�r�s comme premi�res au
